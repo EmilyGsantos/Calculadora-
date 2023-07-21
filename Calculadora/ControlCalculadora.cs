@@ -25,6 +25,8 @@ namespace Calculadora
             this.calculadora.GetSetnum2 = Convert.ToDouble(Console.ReadLine()); 
         }// fim do coletar 
 
+
+
         public int Menu()
         {
             Console.WriteLine("---Menu---" +
@@ -35,12 +37,15 @@ namespace Calculadora
                 "\n4. Multiplicar " +
                 "\n5. potencia " +
                 "\n6. Raiz do primeiro numero+" +
-                "\n7. tabuada do primeiro numero " +
-                "\n8. taubuada do segundo numero" +
+                "\n7. Tabuada do primeiro numero " +
+                "\n8. Taubuada do segundo numero" +
                 "\n9. Binario para Decimal " +
                 "\n.10 Decimal para Binario " +
                 "\n.11 Decimal para Hexadecimal " +
-                "\n.12 equação de 2 grau " +
+                "\n;12 Hexadecimal para Decimal" +
+                "\n.13 Equação de 2 grau " +
+                "\n Binario para hexadecimal " +
+                "\n Hexadecimal para binario" +
                 "\n13. Escolha uma das opçoes acima:");
                 
                 
@@ -118,13 +123,30 @@ namespace Calculadora
                         Console.WriteLine(this.calculadora.TabuadaNum2());
                         break;
 
+                        // binario p decimal 
                         case 9:
-                        Console.WriteLine("Informe um numero em binario:");
+                        Console.WriteLine("Informe um numero em binario para conversão:");
+                        this.calculadora.GetsetBN = Convert.ToDouble(Console.ReadLine());
+                        Console.WriteLine(this.calculadora.ConverterDecimal());
+                        break;
 
-            
+                        // decimal para binario
+                    case 10:
+                        Console.WriteLine("Informe um numero em decimal para conversão:");
+                        this.calculadora.GetSetnum1 = Convert.ToDouble(Console.Read());
+                        Console.WriteLine(this.calculadora.ConverterBinario());
+                        break;
+
+
+                  //  decimal para hexadecimal
+                    case 11:
+                        Console.WriteLine("Informe um numero:");
+                        this.calculadora.GetSetnum1 = Convert.ToDouble(Console.ReadLine());
+                        Console.WriteLine(this.calculadora.Hexadecimal());
+                        break; 
 
                     default:
-                        Console.WriteLine("opçao escolhida nao e valida");
+                        Console.WriteLine("Opçao escolhida nao e valida");
                         break;
 
 
