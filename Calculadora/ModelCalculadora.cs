@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
+using System.Net.Configuration;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
@@ -114,9 +116,9 @@ namespace Calculadora
        
 
         // Binario para decimal 
-        public double ConverterDecimal(string binario) // pegando um binario como string 
+        public int ConverterDecimal(string binario) // pegando um binario como string 
         {
-            double dec = 0;
+            int dec = 0;
             string caract= "";
             int tamanho = binario.Length;
             int pote = tamanho;
@@ -127,7 +129,7 @@ namespace Calculadora
                 caract = binario.Substring(i, 1);
                 if (caract == "1")
                 {
-                    dec += Math.Pow(2, pote);
+                    dec += Convert.ToInt32(Math.Pow(2, pote));
                 }
             }//fim do for
             return dec;
@@ -241,8 +243,144 @@ namespace Calculadora
             }
         }//fim do bhaskara
 
+        public string ConverterBinarioHexadecimal(string binario) 
+        {
 
-    }// fim da classe
+            int dec = ConverterDecimal(binario);
+
+            string hex = ConverterDecimalHexa(dec);
+            return hex;
+
+        }// fim do metodo converter binario para hexadecimal 
+
+
+        // --------------------------------------------------------------------------------------------------------------
+
+        // 01 - Converter Dobro e Triplo 
+        public string ConverterDobroTriplo(double numero) 
+        {
+            double resultadoUm   =  numero * 2;
+            double resultadoDois = numero * 3;
+
+            return "O dobro de," + numero + "é" + resultadoUm + "e o seu triplo é:" + resultadoDois;
+        
+        } // fim do converter Dobro e Triplo
+
+
+        // 02 - Salario 
+        public string Salario(double salariofun)
+        {
+            string resultadosala = "";
+
+            resultadosala += (salariofun * 30) / 100;
+
+            return resultadosala;
+
+        }// fim salario
+
+
+        // 03 - Par e Impar 
+        public string PareImpar() 
+        {
+            int num = 0;
+
+            if (num % 2 == 0) 
+            {
+                return "O numéro:" + num + "é Par";    
+
+            }// fim 
+
+            else
+            {
+                return "O numéro digitado é Impar";
+            }// fim do else 
+           
+        }// fim do par e Impar 
+
+       public string PositivoNegativo(double num) 
+        { 
+           if (num >= 0)
+            {
+                return "O numéro digitado é Positivo";
+
+            }// fim do if 
+
+           else 
+            {
+               return  "O numéro digitado é Negativo";
+            }// fim else 
+
+        }// fim do positivo e negativo 
+
+
+
+
+        // Exercicio 4
+        public int SomadosNumeros() 
+        { 
+         int intnum = 1;
+         int valorfinal = 0;
+
+            for (int i = 0; i == 100; i++) 
+            { 
+               valorfinal += (intnum + i);
+            
+            } // fim do for
+
+            return valorfinal;
+        }// fim 
+
+
+       // Exercico 5 
+        public string TabuadaN (double numerouser)
+        {
+            string resultadoN = "";
+
+            for (int i = 0; i <= 10; i++)
+            {
+                resultadoN += "a tabuada do:" + numerouser + "*" + (numerouser * i);
+
+            }// fim do for
+
+            return resultadoN;
+
+        }// fim da tabuadaN
+
+
+
+      // Exercicio 07
+        public int ImparesePares()
+        {
+           int msg = 0;
+
+            for ( int num1 = 100; num1 <= 200; num1++)
+            {
+                msg += num1;
+            }// fim do for 
+
+            return msg;
+        }// fim do ImparesePares
+        
+     
+        // exercicio 13
+        public string Fatorial(int numFato)
+        {
+            for (int r = 0; int r <= numFato; r++) 
+                {
+                 
+
+                }// fim do for 
+
+        }// fim do Fatorial 
+        
+      
+
+       
+           
+                
+       
+
+    } // fim da classe
 
 
 }// fim do projeto 
